@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gauge Chart</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		#chart {
+			width: 400px;
+			height: 250px;
+		}
+	</style>
+
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		google.charts.load('current', {'packages':['gauge']});
+	    google.charts.setOnLoadCallback(drawChart);
+
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+				['Label', 'Value'],
+				['Age',13],
+				['Weight',51],
+			]);
+
+			var options = {
+				title: 'Favourite Pizzas',
+				width: 900,
+				height: 500,
+				minorTicks: 5,
+			};
+
+			var chart = new google.visualization.Gauge(document.getElementById('chart'));
+
+			chart.draw(data, options);
+		}
+	</script>
+</head>
+<body>
+	<div id="chart"></div>
+</body>
+</html>
